@@ -40,16 +40,19 @@ const PagePokemon = ({ types, pokemons }: any) => {
     <main>
       <div className='mx-auto max-w-screen-xl'>
         <div className='flex items-center mx-4 my-4'>
-          <div className='mr-2 my-4 font-bold self-start'>Types:</div>
+          <div className='mr-2 my-4 font-bold self-start'>
+            {currentPage}Types:
+          </div>
           <div>
             {types.map((iType: any, index: number) => (
               <button
                 key={index}
                 onClick={() => toggleSelect(iType)}
-                className={`px-2 py-2 mx-2 my-2 border-2 rounded-md font-bold ${selectedTypes.includes(iType.name)
-                  ? 'text-white bg-red-900 border-red-900'
-                  : 'text-red-900 border-red-900'
-                  }`}
+                className={`px-2 py-2 mx-2 my-2 border-2 rounded-md font-bold ${
+                  selectedTypes.includes(iType.name)
+                    ? 'text-white bg-red-900 border-red-900'
+                    : 'text-red-900 border-red-900'
+                }`}
               >
                 {iType.name}
               </button>
@@ -60,21 +63,19 @@ const PagePokemon = ({ types, pokemons }: any) => {
           {pokemons.length} results found.
         </div>
       </div>
-
       {<PokemonList data={currentPokemon} />}
       <div className='mt-8 flex justify-center'>
         <button
+          disabled={currentPage == 1}
           onClick={handleBack}
-          className={`p-2 bg-red-900 rounded-md text-white mr-4 ${currentPage == 1
-            ? 'disabled:opacity-40 disabled:cursor-not-allowed select-none'
-            : ''
-            }`}
+          className={`p-2 bg-red-900 rounded-md text-white mr-4 disabled:opacity-40 disabled:cursor-not-allowed select-none`}
         >
           Prev
         </button>
         <button
+          disabled={currentPage == totalPages}
           onClick={handleNext}
-          className='p-2 bg-red-900 rounded-md text-white mr-4 disabled:opacity-40 disabled:cursor-not-allowed select-none'
+          className={`p-2 bg-red-900 rounded-md text-white mr-4 disabled:opacity-40 disabled:cursor-not-allowed select-none`}
         >
           Next
         </button>

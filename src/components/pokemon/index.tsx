@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { IPokemon, IPokemonProps } from './types';
 
@@ -29,14 +30,14 @@ const Pokemon = (props: IPokemonProps) => {
   return (
     <div>
       <div className='h-24 w-24 mx-auto'>
-        <img
+        <Image
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}
           alt={name}
           title={name}
           width='100'
           height='100'
           loading='lazy'
-        ></img>
+        />
       </div>
       <div className='text-center'>{name}</div>
     </div>

@@ -1,3 +1,3 @@
-import PokemonPage from "@/app/pokemon/page";
+import PokemonPage from '@/app/pokemon/page';
 
 export default PokemonPage;
